@@ -10,7 +10,6 @@ export const getUsers = (_, res) => {
 
 export const addUser = (req, res) => {
   const q = "INSERT INTO users (`name`, `email`, `phone`) VALUES(?)";
-  // errei no IN TO  e nas " para `
   const values = [
     req.body.name,
     req.body.email,
@@ -19,7 +18,6 @@ export const addUser = (req, res) => {
   db.query(q, [values], (err) => {
     if (err) return res.json(err);
     return res.status(200).json("Cadastro realizado com sucesso.");
-    // tempo do status errado 0 para 200
   });
 };
 
